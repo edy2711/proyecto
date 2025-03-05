@@ -32,7 +32,8 @@ formulario.addEventListener("submit", e => {
 });
 
 function eliminar(id) {
-    fetch(${API_URL}/${id}, { method: "DELETE" }).then(() => cargarProductos());
+    fetch(`${API_URL}/${id}`, { method: "DELETE" }).then(() => cargarProductos());
 }
 
 cargarProductos();
+
