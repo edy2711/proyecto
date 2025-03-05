@@ -35,4 +35,7 @@ app.delete('/productos/:id', (req, res) => {
     res.json({ mensaje: "Producto eliminado" });
 });
 
+// Servir los archivos estáticos desde la carpeta frontend
+app.use(express.static('frontend'));
+
 app.listen(3000, () => console.log('Servidor en http://localhost:3000'));
