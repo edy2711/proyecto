@@ -1,0 +1,38 @@
+const API_URL = "http://localhost:3000/productos";
+const lista = document.getElementById("productos");
+const formulario = document.getElementById("formulario");
+
+function cargarProductos() {
+    fetch(API_URL)
+        .then(res => res.json())
+        .then(productos => {
+            lista.innerHTML = "";
+            productos.forEach(p => {
+                const li = document.createElement("li");
+                li.innerHTML = `${p.nombre} - $${p.precio} 
+                <button onclick="eliminar(${p.id})">❌</button>`;
+                lista.appendChild(li);
+            });
+        });
+}
+
+formulario.addEventListener("submit", e => {
+    e.preventDefault();
+    const nombre = document.getElementById("nombre").value;
+    const precio = document.getElementById("precio").value;
+
+    fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, precio })
+    }).then(() => {
+        formulario.reset();
+        cargarProductos();
+    });
+});
+
+function eliminar(id) {
+    fetch(${API_URL}/${id}, { method: "DELETE" }).then(() => cargarProductos());
+}
+
+cargarProductos();
