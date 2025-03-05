@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de editores de código
+.vscode/
+
+# Archivos de entorno
+.env
+
+# Otros archivos o carpetas que no deseas versionar
